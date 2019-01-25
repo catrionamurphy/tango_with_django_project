@@ -12,10 +12,15 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,6 +31,10 @@ SECRET_KEY = '%$q+lj!6ztii^6!!n4h567qg4l-!3fl)o-k^_o1d^!m5^t3#ck'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR,]
+
 
 
 # Application definition
@@ -56,7 +65,7 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
